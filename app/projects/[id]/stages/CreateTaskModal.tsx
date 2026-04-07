@@ -46,7 +46,10 @@ export default function CreateTaskModal({
       {open ? (
         <div className="modal-layer" onClick={() => setOpen(false)}>
           <form
-            action={action}
+            action={async (formData) => {
+              await action(formData);
+              setOpen(false);
+            }}
             className="panel modal-card"
             onClick={(event) => event.stopPropagation()}
           >

@@ -127,6 +127,8 @@ export default async function ProjectStagesPage({
         .title-row {
           display: flex;
           align-items: center;
+          justify-content: space-between;
+          width: 100%;
           gap: 1rem;
           margin-bottom: 0.5rem;
         }
@@ -365,11 +367,18 @@ export default async function ProjectStagesPage({
       <div className="panel-container">
         <header className="panel-header">
           <div className="breadcrumb">
-            <BackButton label="Projects" fallbackHref="/projects" /> &rsaquo; {project.title}
+            <BackButton label="Projects" fallbackHref={`/dashboard/${session.role}`} /> &rsaquo; {project.title}
           </div>
-          <div className="title-row">
-            <h2 className="page-title">{project.title}</h2>
-            <span className={`status-badge status-blue`}>{projectStatusLabel(project.status)}</span>
+          <div className="title-row" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%', gap: '1rem', marginBottom: '0.5rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+              <h2 className="page-title">{project.title}</h2>
+              <span className={`status-badge status-blue`}>{projectStatusLabel(project.status)}</span>
+            </div>
+            <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center' }}>
+              <Link href={`/projects/${project.id}/materials`} className="btn btn-secondary" style={{ textDecoration: 'none', background: '#f8fafc', border: '1px solid #cbd5e1', padding: '0.5rem 1rem', borderRadius: '8px', color: '#0f172a', fontWeight: 500, display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
+                📦 Materials Ledger
+              </Link>
+            </div>
           </div>
           <p className="page-subtitle">Stage creation, task management, and status control.</p>
         </header>

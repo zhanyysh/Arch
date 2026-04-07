@@ -32,7 +32,10 @@ export default function CreateProjectModal({
       {open ? (
         <div className="modal-layer" onClick={() => setOpen(false)}>
           <form
-            action={action}
+            action={async (formData) => {
+              await action(formData);
+              setOpen(false);
+            }}
             className="panel modal-card"
             onClick={(event) => event.stopPropagation()}
           >
@@ -43,19 +46,39 @@ export default function CreateProjectModal({
               </button>
             </div>
 
-            <div className="modal-form-vertical" style={{ marginTop: "0.7rem" }}>
-              <input className="users-filter-input" name="title" placeholder="Title" required />
-              <input className="users-filter-input" name="description" placeholder="Description" required />
-              <select id="project-foreman" name="foremanId" required defaultValue={foremen[0]?.id}>
-                {foremen.map((foreman) => (
-                  <option key={foreman.id} value={foreman.id}>
-                    {foreman.fullName}
-                  </option>
-                ))}
-              </select>
-              <input name="startsAt" type="date" required />
-              <input name="dueAt" type="date" required />
-              <button className="btn btn-primary" type="submit">
+            <div className="modal-form-vertical" style={{ marginTop: "0.7rem", gap: "1rem", display: "flex", flexDirection: "column" }}>
+              <label style={{ display: "flex", flexDirection: "column", gap: "0.4rem", fontWeight: 500, fontSize: "14px", color: "#374151" }}>
+                Project Title
+                <input className="users-filter-input" name="title" placeholder="Title" required style={{ fontWeight: "normal" }} />
+              </label>
+
+              <label style={{ display: "flex", flexDirection: "column", gap: "0.4rem", fontWeight: 500, fontSize: "14px", color: "#374151" }}>
+                Description
+                <input className="users-filter-input" name="description" placeholder="Description" required style={{ fontWeight: "normal" }} />
+              </label>
+
+              <label style={{ display: "flex", flexDirection: "column", gap: "0.4rem", fontWeight: 500, fontSize: "14px", color: "#374151" }}>
+                Foreman / Owner
+                <select id="project-foreman" name="foremanId" required defaultValue={foremen[0]?.id} style={{ fontWeight: "normal" }}>
+                  {foremen.map((foreman) => (
+                    <option key={foreman.id} value={foreman.id}>
+                      {foreman.fullName}
+                    </option>
+                  ))}
+                </select>
+              </label>
+
+              <label style={{ display: "flex", flexDirection: "column", gap: "0.4rem", fontWeight: 500, fontSize: "14px", color: "#374151" }}>
+                Start Date
+                <input name="startsAt" type="date" required style={{ fontWeight: "normal" }} />
+              </label>
+
+              <label style={{ display: "flex", flexDirection: "column", gap: "0.4rem", fontWeight: 500, fontSize: "14px", color: "#374151" }}>
+                Due Date
+                <input name="dueAt" type="date" required style={{ fontWeight: "normal" }} />
+              </label>
+
+              <button className="btn btn-primary" type="submit" style={{ marginTop: "0.5rem" }}>
                 Create
               </button>
             </div>

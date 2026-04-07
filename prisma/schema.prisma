@@ -38,6 +38,13 @@ enum TaskStatus {
   rework
 }
 
+enum MaterialStatus {
+  planned
+  ordered
+  delivered
+  used
+}
+
 enum PhotoKind {
   before
   after
@@ -91,8 +98,27 @@ model Project {
   foreman     User          @relation("ProjectForeman", fields: [foremanId], references: [id], onDelete: Restrict)
   stages      Stage[]
   tasks       Task[]
+  materials   Material[]
 
   @@index([companyId])
+  @@index([status])
+}
+
+model Material {
+  id        String         @id @default(cuid())
+  projectId String
+  name      String
+  quantity  Float
+  unit      String
+  status    MaterialStatus @default(planned)
+  cost      Float?
+  supplier  String?        @db.Text
+  createdAt DateTime       @default(now())
+  updatedAt DateTime       @updatedAt
+
+  project   Project        @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@index([projectId])
   @@index([status])
 }
 
