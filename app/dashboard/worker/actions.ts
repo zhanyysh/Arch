@@ -5,6 +5,13 @@ import { requireRole } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { z } from "zod";
 import { TaskStatus } from "@prisma/client";
+import { v2 as cloudinary } from "cloudinary";
+
+// Cloudinary URL automatically picks up from process.env.CLOUDINARY_URL
+// But ensure configuration is present if needed.
+cloudinary.config({
+  secure: true
+});
 
 const UpdateTaskSchema = z.object({
   taskId: z.string().min(1),
@@ -34,21 +41,17 @@ export async function updateWorkerTaskAction(formData: FormData) {
     const bytes = await photoFile.arrayBuffer();
     const buffer = Buffer.from(bytes);
     
-    const uniqueSuffix = `${Date.now()}-${Math.round(Math.random() * 1e9)}`;
-    const ext = photoFile.name.split('.').pop() || 'jpg';
-    const filename = `${uniqueSuffix}.${ext}`;
-    
-    const { join } = await import('path');
-    const { writeFile, mkdir } = await import('fs/promises');
-    
-    const uploadDir = join(process.cwd(), 'public/uploads');
-    try {
-      await mkdir(uploadDir, { recursive: true });
-    } catch (e) {}
-    
-    const path = join(uploadDir, filename);
-    await writeFile(path, buffer);
-    const photoUrl = `/uploads/${filename}`;
+    // Upload buffer directly to Cloudinary
+    const photoUrl = await new Promise<string>((resolve, reject) => {
+      const uploadStream = cloudinary.uploader.upload_stream(
+        { folder: "build-control/tasks", resource_type: "image" },
+        (error, result) => {
+          if (error) reject(error);
+          else resolve(result?.secure_url || "");
+        }
+      );
+      uploadStream.end(buffer);
+    });
 
     // Get current attempt number
     const maxAttempt = await db.photoReport.aggregate({

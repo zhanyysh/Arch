@@ -4,6 +4,11 @@ import { revalidatePath } from "next/cache";
 import { z } from "zod";
 import { requireRole } from "@/lib/auth";
 import { db } from "@/lib/db";
+import { v2 as cloudinary } from "cloudinary";
+
+cloudinary.config({
+  secure: true
+});
 
 const STAGE_STATUSES = ["not_started", "in_progress", "review", "done", "overdue"] as const;
 type StageStatusValue = (typeof STAGE_STATUSES)[number];
@@ -189,30 +194,26 @@ export async function createTaskAction(formData: FormData) {
   const validPhotos = beforePhotos.filter(file => file && file.size > 0 && file.name !== 'undefined');
   
   if (validPhotos.length > 0) {
-    const { join } = await import('path');
-    const { writeFile, mkdir } = await import('fs/promises');
-    const uploadDir = join(process.cwd(), 'public/uploads');
-    
-    try {
-      await mkdir(uploadDir, { recursive: true });
-    } catch (e) {}
-
     for (const photoFile of validPhotos) {
       const bytes = await photoFile.arrayBuffer();
       const buffer = Buffer.from(bytes);
       
-      const uniqueSuffix = `${Date.now()}-${Math.round(Math.random() * 1e9)}`;
-      const ext = photoFile.name.split('.').pop() || 'jpg';
-      const filename = `${uniqueSuffix}.${ext}`;
-      
-      const path = join(uploadDir, filename);
-      await writeFile(path, buffer);
+      const photoUrl = await new Promise<string>((resolve, reject) => {
+        const uploadStream = cloudinary.uploader.upload_stream(
+          { folder: "build-control/tasks/before", resource_type: "image" },
+          (error, result) => {
+            if (error) reject(error);
+            else resolve(result?.secure_url || "");
+          }
+        );
+        uploadStream.end(buffer);
+      });
       
       await db.photoReport.create({
         data: {
           taskId: task.id,
           kind: "before",
-          url: `/uploads/${filename}`,
+          url: photoUrl,
           uploadedBy: session.sub,
           attempt: 1
         }
