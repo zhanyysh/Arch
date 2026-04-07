@@ -1,5 +1,5 @@
 {
-  "name": "archmanager",
+  "name": "build-control",
   "version": "0.1.0",
   "private": true,
   "scripts": {

@@ -4,7 +4,7 @@ import { jwtVerify } from "jose";
 import type { UserRole } from "@/lib/domain";
 
 const jwtSecret = new TextEncoder().encode(process.env.JWT_SECRET ?? "dev-secret");
-const cookieName = "archmanager_session";
+const cookieName = "build-control_session";
 
 function roleHome(role: UserRole): string {
   if (role === "admin") return "/dashboard/admin";

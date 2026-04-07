@@ -5,7 +5,7 @@ export default function LandingPage() {
     <main>
       <section className="hero-grid">
         <div className="fade-in">
-          <span className="tag">ArchManager v1</span>
+          <span className="tag">Build Control v1</span>
           <h1>Управляйте стройкой как единой системой, а не чатом задач</h1>
           <p className="lead">
             Централизованная платформа для компаний: проекты, этапы, роли, фотоотчёты До/После
@@ -79,7 +79,7 @@ export default function LandingPage() {
       </section>
 
       <section className="section" id="testimonials" style={{ marginTop: "4rem", backgroundColor: "#f9fbfd", padding: "3rem", borderRadius: "12px" }}>
-        <h2 style={{ fontSize: "2rem", marginBottom: "2rem", textAlign: "center" }}>Почему выбирают ArchManager</h2>
+        <h2 style={{ fontSize: "2rem", marginBottom: "2rem", textAlign: "center" }}>Почему выбирают Build Control</h2>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2rem", paddingBottom: "1rem" }}>
           <article className="card-panel" style={{ backgroundColor: "#fff" }}>
             <p style={{ fontStyle: "italic", marginBottom: "1rem", color: "#344558" }}>

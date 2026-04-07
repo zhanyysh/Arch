@@ -1,4 +1,4 @@
-# ArchManager v1 - Implementation Start
+# Build Control v1 - Implementation Start
 
 This repository now contains the first implementation slice from the PRD:
 
@@ -44,10 +44,10 @@ Open http://localhost:3000
 
 ## Seed Credentials
 
-- Admin: admin@archmanager.local / Admin123!
-- Manager: manager@archmanager.local / Manager123!
-- Foreman: foreman@archmanager.local / Foreman123!
-- Worker: worker@archmanager.local / Worker123!
+- Admin: admin@build-control.local / Admin123!
+- Manager: manager@build-control.local / Manager123!
+- Foreman: foreman@build-control.local / Foreman123!
+- Worker: worker@build-control.local / Worker123!
 
 ## Next Steps (Planned)
 

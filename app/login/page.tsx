@@ -18,7 +18,7 @@ export default async function LoginPage({
     <main>
       <section className="auth-shell fade-in">
         <span className="tag">Авторизация</span>
-        <h1 style={{ marginTop: "0.7rem" }}>Вход в ArchManager</h1>
+        <h1 style={{ marginTop: "0.7rem" }}>Вход в Build Control</h1>
         <p style={{ color: "#444" }}>
           Доступ создаётся администратором. Для подключения новой компании: 0777 77 77 77.
         </p>
@@ -49,7 +49,7 @@ export default async function LoginPage({
         </form>
 
         <p style={{ color: "#355777", marginTop: "0.9rem", marginBottom: 0 }}>
-          Тестовый админ: admin@archmanager.local / Admin123!
+          Тестовый админ: admin@build-control.local / Admin123!
         </p>
       </section>
     </main>

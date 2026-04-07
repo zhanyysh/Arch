@@ -36,13 +36,13 @@ async function main() {
   const platform = await prisma.company.upsert({
     where: { id: "cmp_platform" },
     update: {
-      name: "ArchManager Platform",
+      name: "Build Control Platform",
       phone: "0777 77 77 77",
       isActive: true
     },
     create: {
       id: "cmp_platform",
-      name: "ArchManager Platform",
+      name: "Build Control Platform",
       phone: "0777 77 77 77",
       isActive: true
     }
@@ -64,7 +64,7 @@ async function main() {
   });
 
   const admin = await upsertUser({
-    email: "admin@archmanager.local",
+    email: "admin@build-control.local",
     fullName: "Айбек Асанов",
     role: "admin",
     companyId: platform.id,
@@ -72,7 +72,7 @@ async function main() {
   });
 
   const foreman = await upsertUser({
-    email: "foreman@archmanager.local",
+    email: "foreman@build-control.local",
     fullName: "Руслан Мамытов",
     role: "foreman",
     companyId: akBuild.id,
@@ -80,7 +80,7 @@ async function main() {
   });
 
   await upsertUser({
-    email: "manager@archmanager.local",
+    email: "manager@build-control.local",
     fullName: "Эльвира Токтогулова",
     role: "manager",
     companyId: akBuild.id,
@@ -88,7 +88,7 @@ async function main() {
   });
 
   const worker = await upsertUser({
-    email: "worker@archmanager.local",
+    email: "worker@build-control.local",
     fullName: "Нурлан Осмонов",
     role: "worker",
     companyId: akBuild.id,

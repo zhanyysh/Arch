@@ -28,7 +28,7 @@ export default function WorkspaceShell({
         <div className="saas-brand">
           <div className="saas-brand-logo">AM</div>
           <div>
-            <p className="saas-brand-title">ArchManager</p>
+            <p className="saas-brand-title">Build Control</p>
             <p className="saas-brand-sub">WorkPanel</p>
           </div>
         </div>

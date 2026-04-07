@@ -13,7 +13,7 @@ export const users: User[] = [
   {
     id: "usr_admin_1",
     fullName: "Айбек Асанов",
-    email: "admin@archmanager.local",
+    email: "admin@build-control.local",
     role: "admin",
     companyId: "cmp_ak_build",
     isActive: true
@@ -21,7 +21,7 @@ export const users: User[] = [
   {
     id: "usr_manager_1",
     fullName: "Эльвира Токтогулова",
-    email: "manager@archmanager.local",
+    email: "manager@build-control.local",
     role: "manager",
     companyId: "cmp_ak_build",
     isActive: true
@@ -29,7 +29,7 @@ export const users: User[] = [
   {
     id: "usr_foreman_1",
     fullName: "Руслан Мамытов",
-    email: "foreman@archmanager.local",
+    email: "foreman@build-control.local",
     role: "foreman",
     companyId: "cmp_ak_build",
     isActive: true
@@ -37,7 +37,7 @@ export const users: User[] = [
   {
     id: "usr_worker_1",
     fullName: "Нурлан Осмонов",
-    email: "worker@archmanager.local",
+    email: "worker@build-control.local",
     role: "worker",
     companyId: "cmp_ak_build",
     isActive: true

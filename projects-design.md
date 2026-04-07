@@ -1,4 +1,4 @@
-Redesign the ArchManager "Stages" page to be simpler and more user-friendly. Keep all existing functionality but improve clarity and reduce visual noise.
+Redesign the Build Control "Stages" page to be simpler and more user-friendly. Keep all existing functionality but improve clarity and reduce visual noise.
 
 PROBLEMS TO FIX
 - The page title ("Stages: ЖК Skyline Residence") is too large and dominant — scale it down

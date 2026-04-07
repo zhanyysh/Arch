@@ -6,7 +6,7 @@ import { redirect } from "next/navigation";
 import type { UserRole } from "@/lib/domain";
 import { db } from "@/lib/db";
 
-const SESSION_COOKIE = "archmanager_session";
+const SESSION_COOKIE = "build-control_session";
 const jwtSecret = new TextEncoder().encode(process.env.JWT_SECRET ?? "dev-secret");
 const expiresInSeconds = Number(process.env.JWT_EXPIRES_IN_SECONDS ?? 28800);
 
