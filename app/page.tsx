@@ -6,102 +6,99 @@ export default function LandingPage() {
       <section className="hero-grid">
         <div className="fade-in">
           <span className="tag">Build Control v1</span>
-          <h1>Управляйте стройкой как единой системой, а не чатом задач</h1>
+          <h1>Manage construction as a unified system, not a task chat</h1>
           <p className="lead">
-            Централизованная платформа для компаний: проекты, этапы, роли, фотоотчёты До/После
-            и контроль дедлайнов в одном рабочем пространстве.
+            Centralized platform for companies: projects, stages, roles, before/after photo reports
+            and deadline control in one workspace.
           </p>
           <div className="cta-row">
             <a className="btn btn-accent" href="tel:+996777777777">
-              Позвонить: 0777 77 77 77
+              Call: 0777 77 77 77
             </a>
             <Link className="btn btn-primary" href="/login">
-              Войти в систему
+              Log in
             </Link>
             <a className="btn btn-ghost" href="#capabilities">
-              Смотреть возможности
+              View features
             </a>
           </div>
           <p className="lead" style={{ fontSize: "0.95rem" }}>
-            Для начала работы позвоните нам по номеру 0777 77 77 77 - мы создадим аккаунт
-            для вашей компании.
+            To get started, call us at 0777 77 77 77 - we'll create an account
+            for your company.
           </p>
         </div>
 
         <aside className="panel fade-in stagger-1">
-          <h2 style={{ fontSize: "1.75rem", marginBottom: "0.75rem" }}>Что видно в реальном времени</h2>
+          <h2 style={{ fontSize: "1.75rem", marginBottom: "0.75rem" }}>Real-time overview</h2>
           <div className="metrics">
             <div className="metric">
               <strong>12</strong>
-              активных объектов
+              active projects
             </div>
             <div className="metric">
               <strong>286</strong>
-              задач под контролем
+              tasks under control
             </div>
             <div className="metric">
               <strong>94%</strong>
-              задач с фото-подтверждением
+              tasks with photo confirmation
             </div>
             <div className="metric">
               <strong>24/7</strong>
-              доступ к прогрессу
+              access to progress
             </div>
           </div>
         </aside>
       </section>
 
       <section className="section" id="capabilities">
-        <h2 style={{ fontSize: "2rem", marginBottom: "0.8rem" }}>Ключевые возможности</h2>
+        <h2 style={{ fontSize: "2rem", marginBottom: "0.8rem" }}>Key features</h2>
         <div className="features">
           <article className="feature fade-in stagger-1">
-            <h3>Проекты и этапы</h3>
+            <h3>Projects and stages</h3>
             <p>
-              Менеджер формирует проект, назначает прораба, отслеживает статусы и общий прогресс по
-              этапам.
+              Manager creates a project, assigns a foreman, tracks status and overall progress across stages.
             </p>
           </article>
           <article className="feature fade-in stagger-2">
-            <h3>Роли и доступ</h3>
+            <h3>Roles and access</h3>
             <p>
-              Администратор создаёт аккаунты, а каждый пользователь видит только свой функциональный
-              контур.
+              Admin creates accounts, and each user sees only their functional scope.
             </p>
           </article>
           <article className="feature fade-in">
-            <h3>Фото До/После</h3>
+            <h3>Before/After photos</h3>
             <p>
-              Работник не может завершить задачу без фото результата. Прораб проверяет в режиме
-              сравнения side-by-side.
+              Worker cannot complete a task without a result photo. Foreman reviews in side-by-side comparison mode.
             </p>
           </article>
         </div>
       </section>
 
       <section className="section" id="testimonials" style={{ marginTop: "4rem", backgroundColor: "#f9fbfd", padding: "3rem", borderRadius: "12px" }}>
-        <h2 style={{ fontSize: "2rem", marginBottom: "2rem", textAlign: "center" }}>Почему выбирают Build Control</h2>
+        <h2 style={{ fontSize: "2rem", marginBottom: "2rem", textAlign: "center" }}>Why choose Build Control</h2>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2rem", paddingBottom: "1rem" }}>
           <article className="card-panel" style={{ backgroundColor: "#fff" }}>
             <p style={{ fontStyle: "italic", marginBottom: "1rem", color: "#344558" }}>
-              «Раньше мы теряли сотни фотографий в мессенджерах. Теперь каждый этап стройки подкреплен фотоотчетом "До" и "После", привязанным к конкретной задаче. Контроль стал прозрачным.»
+              «Before, we were losing hundreds of photos in messengers. Now each construction stage is supported by before and after photo reports tied to specific tasks. Control became transparent.»
             </p>
             <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
               <div style={{ width: "40px", height: "40px", borderRadius: "50%", backgroundColor: "#e2e8f0" }}></div>
               <div>
-                <strong>Азамат К.</strong>
-                <div style={{ fontSize: "0.85rem", color: "#58697f" }}>Главный инженер, СтройГрупп</div>
+                <strong>Azamat K.</strong>
+                <div style={{ fontSize: "0.85rem", color: "#58697f" }}>Chief Engineer, BuildGroup</div>
               </div>
             </div>
           </article>
           <article className="card-panel" style={{ backgroundColor: "#fff" }}>
             <p style={{ fontStyle: "italic", marginBottom: "1rem", color: "#344558" }}>
-              «Разделение ролей — лучшее решение. Рабочие видят только свои задачи и не путаются в документации, а я получаю сводку по всем объектам на одном дашборде.»
+              «Role separation is the best solution. Workers see only their tasks and don't get confused by documentation, and I get a summary of all projects on one dashboard.»
             </p>
             <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
               <div style={{ width: "40px", height: "40px", borderRadius: "50%", backgroundColor: "#e2e8f0" }}></div>
               <div>
-                <strong>Елена С.</strong>
-                <div style={{ fontSize: "0.85rem", color: "#58697f" }}>Руководитель проектов</div>
+                <strong>Elena S.</strong>
+                <div style={{ fontSize: "0.85rem", color: "#58697f" }}>Project Manager</div>
               </div>
             </div>
           </article>

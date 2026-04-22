@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Build Control",
-  description: "Платформа управления архитектурными проектами"
+  description: "Architectural project management platform"
 };
 
 export default function RootLayout({
@@ -12,7 +12,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ru">
+    <html lang="en">
       <body suppressHydrationWarning>{children}</body>
     </html>
   );

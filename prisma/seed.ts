@@ -65,7 +65,7 @@ async function main() {
 
   const admin = await upsertUser({
     email: "admin@build-control.local",
-    fullName: "Айбек Асанов",
+    fullName: "Aibek Asanov",
     role: "admin",
     companyId: platform.id,
     password: "Admin123!"
@@ -73,7 +73,7 @@ async function main() {
 
   const foreman = await upsertUser({
     email: "foreman@build-control.local",
-    fullName: "Руслан Мамытов",
+    fullName: "Ruslan Mamytov",
     role: "foreman",
     companyId: akBuild.id,
     password: "Foreman123!"
@@ -81,7 +81,7 @@ async function main() {
 
   await upsertUser({
     email: "manager@build-control.local",
-    fullName: "Эльвира Токтогулова",
+    fullName: "Elvira Toktogulova",
     role: "manager",
     companyId: akBuild.id,
     password: "Manager123!"
@@ -89,7 +89,7 @@ async function main() {
 
   const worker = await upsertUser({
     email: "worker@build-control.local",
-    fullName: "Нурлан Осмонов",
+    fullName: "Nurlan Osmonov",
     role: "worker",
     companyId: akBuild.id,
     password: "Worker123!"
@@ -98,8 +98,8 @@ async function main() {
   const project = await prisma.project.upsert({
     where: { id: "prj_001" },
     update: {
-      title: "ЖК Skyline Residence",
-      description: "12-этажный жилой комплекс в Бишкеке",
+      title: "Skyline Residence Complex",
+      description: "12-storey residential complex in Bishkek",
       startsAt: new Date("2026-04-01"),
       dueAt: new Date("2026-12-20"),
       foremanId: foreman.id,
@@ -108,8 +108,8 @@ async function main() {
     },
     create: {
       id: "prj_001",
-      title: "ЖК Skyline Residence",
-      description: "12-этажный жилой комплекс в Бишкеке",
+      title: "Skyline Residence Complex",
+      description: "12-storey residential complex in Bishkek",
       startsAt: new Date("2026-04-01"),
       dueAt: new Date("2026-12-20"),
       foremanId: foreman.id,
@@ -122,7 +122,7 @@ async function main() {
     where: { id: "stg_001" },
     update: {
       projectId: project.id,
-      title: "Фундамент",
+      title: "Foundation",
       startsAt: new Date("2026-04-01"),
       dueAt: new Date("2026-05-01"),
       status: "in_progress",
@@ -131,7 +131,7 @@ async function main() {
     create: {
       id: "stg_001",
       projectId: project.id,
-      title: "Фундамент",
+      title: "Foundation",
       startsAt: new Date("2026-04-01"),
       dueAt: new Date("2026-05-01"),
       status: "in_progress",
@@ -145,7 +145,7 @@ async function main() {
       projectId: project.id,
       stageId: stage.id,
       workerId: worker.id,
-      title: "Подготовить опалубку секции A",
+      title: "Prepare formwork for section A",
       status: "in_progress",
       requiresAfterPhoto: true
     },
@@ -154,7 +154,7 @@ async function main() {
       projectId: project.id,
       stageId: stage.id,
       workerId: worker.id,
-      title: "Подготовить опалубку секции A",
+      title: "Prepare formwork for section A",
       status: "in_progress",
       requiresAfterPhoto: true
     }

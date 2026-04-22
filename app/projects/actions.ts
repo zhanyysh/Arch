@@ -41,7 +41,7 @@ export async function createProjectAction(formData: FormData) {
   });
 
   if (!foreman) {
-    throw new Error("Назначенный прораб не найден");
+    throw new Error("Assigned foreman not found");
   }
 
   const project = await db.project.create({
@@ -76,7 +76,7 @@ export async function updateProjectStatusAction(formData: FormData) {
   const status = String(formData.get("status") ?? "") as ProjectStatus;
 
   if (!projectId || !Object.values(ProjectStatus).includes(status)) {
-    throw new Error("Некорректные параметры обновления статуса проекта");
+    throw new Error("Invalid project status update parameters");
   }
 
   const project = await db.project.findFirst({
@@ -89,7 +89,7 @@ export async function updateProjectStatusAction(formData: FormData) {
   });
 
   if (!project) {
-    throw new Error("Проект не найден или недоступен");
+    throw new Error("Project not found or access denied");
   }
 
   await db.project.update({

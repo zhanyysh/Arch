@@ -12,7 +12,7 @@ export const companies: Company[] = [
 export const users: User[] = [
   {
     id: "usr_admin_1",
-    fullName: "Айбек Асанов",
+    fullName: "Aibek Asanov",
     email: "admin@build-control.local",
     role: "admin",
     companyId: "cmp_ak_build",
@@ -20,7 +20,7 @@ export const users: User[] = [
   },
   {
     id: "usr_manager_1",
-    fullName: "Эльвира Токтогулова",
+    fullName: "Elvira Toktogulova",
     email: "manager@build-control.local",
     role: "manager",
     companyId: "cmp_ak_build",
@@ -28,7 +28,7 @@ export const users: User[] = [
   },
   {
     id: "usr_foreman_1",
-    fullName: "Руслан Мамытов",
+    fullName: "Ruslan Mamytov",
     email: "foreman@build-control.local",
     role: "foreman",
     companyId: "cmp_ak_build",
@@ -36,7 +36,7 @@ export const users: User[] = [
   },
   {
     id: "usr_worker_1",
-    fullName: "Нурлан Осмонов",
+    fullName: "Nurlan Osmonov",
     email: "worker@build-control.local",
     role: "worker",
     companyId: "cmp_ak_build",
@@ -48,8 +48,8 @@ export const projects: Project[] = [
   {
     id: "prj_001",
     companyId: "cmp_ak_build",
-    title: "ЖК Skyline Residence",
-    description: "12-этажный жилой комплекс в Бишкеке",
+    title: "Skyline Residence",
+    description: "12-storey residential complex in Bishkek",
     startsAt: "2026-04-01",
     dueAt: "2026-12-20",
     foremanId: "usr_foreman_1",
@@ -61,7 +61,7 @@ export const stages: Stage[] = [
   {
     id: "stg_001",
     projectId: "prj_001",
-    title: "Фундамент",
+    title: "Foundation",
     startsAt: "2026-04-01",
     dueAt: "2026-05-01",
     status: "in_progress",
@@ -70,7 +70,7 @@ export const stages: Stage[] = [
   {
     id: "stg_002",
     projectId: "prj_001",
-    title: "Монолитный каркас",
+    title: "Monolithic frame",
     startsAt: "2026-05-02",
     dueAt: "2026-07-01",
     status: "not_started",
@@ -85,7 +85,7 @@ export const tasks: Task[] = [
     stageId: "stg_001",
     workerId: "usr_worker_1",
     assigneeRole: "worker",
-    title: "Подготовить опалубку секции A",
+    title: "Prepare formwork for section A",
     status: "in_progress",
     requiresAfterPhoto: true
   }

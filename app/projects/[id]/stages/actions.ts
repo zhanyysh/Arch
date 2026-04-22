@@ -51,13 +51,13 @@ export async function createStageAction(formData: FormData) {
   });
 
   if (!parsed.success) {
-    throw new Error("Некорректные данные этапа");
+    throw new Error("Invalid stage data");
   }
 
   const project = await loadScopedProject(parsed.data.projectId, session);
 
   if (!project) {
-    throw new Error("Проект не найден или недоступен");
+    throw new Error("Project not found or access denied");
   }
 
   await db.stage.create({
@@ -92,13 +92,13 @@ export async function updateStageStatusAction(formData: FormData) {
   const status = String(formData.get("status") ?? "") as StageStatusValue;
 
   if (!projectId || !stageId || !STAGE_STATUSES.includes(status)) {
-    throw new Error("Некорректные параметры обновления этапа");
+    throw new Error("Invalid stage update parameters");
   }
 
   const project = await loadScopedProject(projectId, session);
 
   if (!project) {
-    throw new Error("Проект не найден или недоступен");
+    throw new Error("Project not found or access denied");
   }
 
   const stage = await db.stage.findFirst({
@@ -110,7 +110,7 @@ export async function updateStageStatusAction(formData: FormData) {
   });
 
   if (!stage) {
-    throw new Error("Этап не найден");
+    throw new Error("Stage not found");
   }
 
   await db.stage.update({

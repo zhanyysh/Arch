@@ -1,10 +1,10 @@
 import type { UserRole } from "@/lib/domain";
 
 export const ROLE_LABELS: Record<UserRole, string> = {
-  admin: "Администратор",
-  manager: "Менеджер",
-  foreman: "Прораб",
-  worker: "Работник"
+  admin: "Administrator",
+  manager: "Manager",
+  foreman: "Foreman",
+  worker: "Worker"
 };
 
 const roleRoutes: Record<UserRole, string> = {

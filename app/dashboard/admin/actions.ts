@@ -26,7 +26,7 @@ export async function createCompanyAction(formData: FormData) {
   });
 
   if (!parsed.success) {
-    throw new Error("Некорректные данные компании");
+    throw new Error("Invalid company data");
   }
 
   await createCompany(parsed.data);
@@ -38,7 +38,7 @@ export async function toggleCompanyAction(formData: FormData) {
   const nextActive = String(formData.get("nextActive") ?? "") === "true";
 
   if (!companyId) {
-    throw new Error("Не указан companyId");
+    throw new Error("companyId not provided");
   }
 
   await toggleCompany(companyId, nextActive);
@@ -55,7 +55,7 @@ export async function createUserAction(formData: FormData) {
   });
 
   if (!parsed.success) {
-    throw new Error("Некорректные данные пользователя");
+    throw new Error("Invalid user data");
   }
 
   const passwordHash = await bcrypt.hash(parsed.data.password, 10);
@@ -76,7 +76,7 @@ export async function toggleUserAction(formData: FormData) {
   const nextActive = String(formData.get("nextActive") ?? "") === "true";
 
   if (!userId) {
-    throw new Error("Не указан userId");
+    throw new Error("userId not provided");
   }
 
   await toggleUser(userId, nextActive);
